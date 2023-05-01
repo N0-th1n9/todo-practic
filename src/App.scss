@@ -1,0 +1,8 @@
+@import "src/variables";
+
+.App{
+    background-color: $bg-color;
+    width: 1280px;
+    height: 100vh;
+    padding: 10px 31px;
+}
