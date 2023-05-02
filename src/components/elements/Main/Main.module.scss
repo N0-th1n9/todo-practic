@@ -1,0 +1,36 @@
+.main{
+  margin-top: 60px;
+}
+
+.title{
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 37px;
+}
+
+.top{
+  margin-top: 27px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  p{
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    padding-right: 80px;
+  }
+
+
+
+  & > *{
+    flex-basis: 43%;
+  }
+}
+
+.sortBtn {
+  margin-top: 5px;
+  display: flex;
+  align-items: flex-start;
+}

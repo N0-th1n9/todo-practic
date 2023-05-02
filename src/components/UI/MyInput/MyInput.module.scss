@@ -1,0 +1,21 @@
+@import "../../../variables";
+
+.myInput {
+  border-radius: 30px;
+  height: 41px;
+  background-color: $main-color;
+  border: none;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 23px;
+  padding: 0 13px;
+  width: 100%;
+
+  &::placeholder{
+    color: #B5B5B5;
+  }
+
+  &::after{
+    content: url("../../../../public/img/icon-search.svg");
+  }
+}
