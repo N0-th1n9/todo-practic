@@ -10,27 +10,27 @@
 
 .top{
   margin-top: 27px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template:  1fr / repeat(3, 1fr);
 
-  p{
+  .top_sort{
+    display: flex;
+  }
+
+  .advise{
     font-weight: 300;
     font-size: 20px;
     line-height: 23px;
     text-align: center;
-    padding-right: 80px;
-  }
-
-
-
-  & > *{
-    flex-basis: 43%;
+    padding: 0 80px;
+    grid-column-start: 2;
+    grid-column-end: 4;
   }
 }
 
-.sortBtn {
-  margin-top: 5px;
-  display: flex;
-  align-items: flex-start;
+.favorites{
+  margin-top: 53px;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
 }

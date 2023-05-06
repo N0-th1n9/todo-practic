@@ -1,0 +1,22 @@
+.tasks_container{
+  margin-top: 15px;
+}
+.btnShow_container{
+  display: flex;
+  justify-content: right;
+
+}
+.btnShow{
+  margin-bottom: 5px;
+}
+
+.tasks{
+  display: flex;
+  gap: 70px;
+
+  h3{
+    font-size: 24px;
+    margin: 35px auto 0;
+    font-weight: 300;
+  }
+}

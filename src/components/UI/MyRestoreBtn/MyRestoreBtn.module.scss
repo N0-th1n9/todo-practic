@@ -1,0 +1,12 @@
+@import "src/variables";
+
+.btnRestore{
+  background: $main-color url("../../../../public/img/icon-cross.svg") center no-repeat;
+  border-radius: 30px;
+  padding: 20.5px;
+  transition: background-color .2s;
+
+  &:hover{
+    background-color: $hover-color;
+  }
+}

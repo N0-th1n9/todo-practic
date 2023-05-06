@@ -1,0 +1,40 @@
+@import "src/variables";
+
+.btn {
+  background: $main-color;
+  border-radius: 30px;
+  height: 41px;
+  padding: 0 16px;
+  font-weight: 300;
+  line-height: 15px;
+  transition: background-color 0.6s;
+
+  &::after{
+    display: inline-block;
+    content: url("../../../../public/img/icon-arrow.svg");
+    margin-left: 13px;
+    transform: translateY(-7%);
+  }
+  &:hover{
+    background-color: $hover-color;
+  }
+}
+
+.btn_active {
+  background: $active-color;
+  &:hover{
+    background-color: $active-color;
+  }
+}
+.btn_active_reverse {
+  background: $active-color;
+  &::after{
+    display: inline-block;
+    content: url("../../../../public/img/icon-arrow.svg");
+    margin-left: 13px;
+    transform: rotate(180deg) translateY(-20%);
+  }
+  &:hover{
+    background-color: $active-color;
+  }
+}
