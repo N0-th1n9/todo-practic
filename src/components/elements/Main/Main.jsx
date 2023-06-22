@@ -1,47 +1,42 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useMemo} from 'react';
 import styles from './Main.module.scss'
 import TasksList from "../../shared/TasksList/TasksList";
 import SortNavigation from "../../shared/SortButtons/SortNavigation";
+import {useSortAndSearchTasks} from "../../../hooks/useSortTasks";
 import {SortContext} from "../../../Providers/SortProvider";
-import MyAddButton from "../../UI/MyAddButton/MyAddButton";
 import {TasksContext} from "../../../Providers/TasksProvider";
+import {useCommonTasks} from "../../../hooks/DistributionTasks";
+import {useFavoritesTasks} from "../../../hooks/DistributionTasks";
 
 export const defaultSettings = {selectedSort: '', isReversSort: false, search: ''}
 
 const Main = () => {
   const {sort} = useContext(SortContext)
   const {tasks, setTasks} = useContext(TasksContext)
-  // const sortTasks = useSortTasks(sort)
+  const sortAndSearchTasks = useSortAndSearchTasks(tasks, sort)
+  const commonTasks = useCommonTasks(sortAndSearchTasks)
+  const favoritesTasks = useFavoritesTasks(sortAndSearchTasks)
 
-  const sortTasks = useMemo(() => {
-    if (sort.selectedSort && !sort.isReversSort) {
-      return [...tasks].sort((a, b) =>
-        a[sort.selectedSort].localeCompare(b[sort.selectedSort])
-      )
-    }else if (sort.selectedSort && sort.isReversSort){
-      return [...tasks].sort((a, b) =>
-        b[sort.selectedSort].localeCompare(a[sort.selectedSort])
-      )
+  const chooseFavorite = (task) => { // Изменение favorite по нажатию на звездачку
+    const updatedTasks = [...tasks]; // Создаем копию массива tasks
+
+    if (updatedTasks[task.id - 1].Favorites) {
+      // Обновляем значение Favorites в копии
+      updatedTasks[task.id - 1] = {
+        ...updatedTasks[task.id - 1],
+        Favorites: false
+      };
+
+    }else{
+      // Обновляем значение Favorites в копии
+      updatedTasks[task.id - 1] = {
+        ...updatedTasks[task.id - 1],
+        Favorites: true
+      };
     }
-    return tasks
-  }, [sort.selectedSort, sort.isReversSort])
 
-
-  const sortAndSearchTasks = useMemo(() => {
-    if (sort.search === undefined){
-      return sortTasks
-    }
-    return sortTasks.filter(task => task.Name.trim().toLowerCase().includes(sort.search.trim().toLowerCase()))
-  }, [sort.search, sortTasks])
-
-
-  const favoritesTasks = useMemo(() => {
-    return sortAndSearchTasks.filter(task => task.Favorites === true);
-  }, [tasks.Favorites, sortAndSearchTasks])
-
-  const chooseFavor = () => {
-    console.log(sort.Favorites)
-  }
+    setTasks(updatedTasks)
+  };
 
   return (
     <div className={styles.main}>
@@ -50,9 +45,9 @@ const Main = () => {
         <SortNavigation/>
         <p className={styles.advise}>Text lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</p>
       </div>
-      <TasksList tasks={sortAndSearchTasks}/>
+      <TasksList chooseFavorite={chooseFavorite} tasks={commonTasks}/>
       <h3 className={styles.favorites}>Favorites</h3>
-      <TasksList tasks={favoritesTasks} setTasks={setTasks}/>
+      <TasksList chooseFavorite={chooseFavorite} tasks={favoritesTasks}/>
     </div>
   );
 };

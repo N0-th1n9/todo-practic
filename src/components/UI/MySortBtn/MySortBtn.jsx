@@ -15,17 +15,17 @@ const MySortBtn = ({value, ...props}) => {
       setSort({selectedSort: value, isReversSort: revers})
       setRevers(!revers)
     }else if(sort.selectedSort === ''){
-      setSort({selectedSort: value, isReversSort: false})
+      setSort({selectedSort: value, reversSort: false})
       setRevers(true)
     }
   }
 
   //Установка классов в зависимости от сортировки
   const changeClass = () => {
-    if (sort.selectedSort === value && sort.isReversSort === false) {
+    if (sort.selectedSort === value && !sort.isReversSort) {
       return [styles.btn, styles.btn_active]
     }
-    if (sort.selectedSort === value && sort.isReversSort === true) {
+    if (sort.selectedSort === value && sort.isReversSort) {
       return [styles.btn, styles.btn_active_reverse]
     }
     return [styles.btn]

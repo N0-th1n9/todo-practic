@@ -1,14 +1,21 @@
 import React, {useContext} from "react";
 import styles from "./MyTask.module.scss"
-import {TasksContext} from "../../../Providers/TasksProvider";
 
-const MyTask = ({task, id}) => {
+const MyTask = ({task, chooseFavorite, id}) => {
+
+  const stylesFavorites = () => {
+    if (task.Favorites){
+      return styles.favorite_on
+    }else{
+      return styles.favorite_off
+    }
+  }
 
   return (
     <div className={styles.task}>
       <div className={styles.top}>
         <h4>{task.Name}</h4>
-        <button></button>
+        <button className={stylesFavorites()} onClick={() => chooseFavorite(task)}></button>
       </div>
       <p>{task.Body}</p>
       <span>{task.Date}</span>

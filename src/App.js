@@ -1,9 +1,7 @@
 import './App.scss';
 import Header from "./components/elements/Header/Header";
 import Main from "./components/elements/Main/Main";
-import {SortContext, SortProvider} from "./Providers/SortProvider"
-import {useContext} from "react";
-import {useSortTasks} from "./hooks/useSortTasks";
+import {SortProvider} from "./Providers/SortProvider"
 import {TasksProvider} from "./Providers/TasksProvider";
 
 function App() {

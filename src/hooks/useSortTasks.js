@@ -1,19 +1,27 @@
-// import {useMemo} from "react";
-// import tasks from "../data";
+import {useMemo} from "react";
 
-// export const useSortTasks = useMemo((sort) => {
-//   if (sort.selectedSort && !sort.isReversSort) {
-//     return [...tasks].sort((a, b) =>
-//       a[sort.selectedSort].localeCompare(b[sort.selectedSort])
-//     )
-//   }else if (sort.selectedSort && sort.isReversSort){
-//     return [...tasks].sort((a, b) =>
-//       b[sort.selectedSort].localeCompare(a[sort.selectedSort])
-//     )
-//   }
-//   return tasks
-// }, [sort])
+export const useSortTasks = (tasks, sort) => {
+  return useMemo(() => {
+    if (sort.selectedSort && !sort.isReversSort) {
+      return Object.values(tasks).sort((a, b) =>
+        a[sort.selectedSort].localeCompare(b[sort.selectedSort])
+      );
+    } else if (sort.selectedSort && sort.isReversSort) {
+      return Object.values(tasks).sort((a, b) =>
+        b[sort.selectedSort].localeCompare(a[sort.selectedSort])
+      );
+    }
+    return Object.values(tasks);
+  }, [sort.selectedSort, sort.isReversSort, tasks])
+}
 
-// const sortAndSearchTasks = useMemo(() => {
-//   return useSortTasks.filter(task => task.Name.toLowerCase().includes(sort.search.toLowerCase()))
-// }, [sort.search, sortTasks])
+export const useSortAndSearchTasks = (tasks, sort) => {
+  const sortTasks = useSortTasks(tasks, sort)
+
+  return useMemo(() => {
+    if (sort.search === undefined) {
+      return [...sortTasks];
+    }
+    return sortTasks.filter(task => task.Name.trim().toLowerCase().includes(sort.search.trim().toLowerCase()));
+  }, [sort.search, sortTasks])
+}
