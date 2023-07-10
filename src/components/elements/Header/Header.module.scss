@@ -1,0 +1,40 @@
+@import "../../../styles/variables";
+
+.header{
+    width: 100%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    span {
+        color: $active-color;
+    }
+}
+
+.logo{
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+.right_navbar{
+    display: flex;
+    gap: 6.5vw;
+}
+
+.right_navbar_info{
+    display: flex;
+    gap: 3.4vw;
+}
+@media (max-width: 700px) {
+    .right_navbar {
+        display: none;
+    }
+}
+
+@media (min-width: 701px) {
+    .burger {
+        display: none;
+    }
+}

@@ -1,57 +1,72 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from './Main.module.scss'
-import TasksList from "../../shared/TasksList/TasksList";
 import {useSortAndSearchTasks} from "../../../hooks/useSortTasks";
 import {SortContext} from "../../../Providers/SortProvider";
 import {TasksContext} from "../../../Providers/TasksProvider";
-import {useCommonTasks} from "../../../hooks/DistributionTasks";
-import {useFavoritesTasks} from "../../../hooks/DistributionTasks";
+import {useCommonTasks} from "../../../hooks/useDistributionTasks";
+import {useFavoritesTasks} from "../../../hooks/useDistributionTasks";
 import MyControlPanel from "../../UI/MyControlPanel/MyControlPanel";
 import MyAddPanel from "../../UI/MyAddPanel/MyAddPanel";
-import MyAddButton from "../../UI/MyAddButton/MyAddButton";
+import TasksList from "../../shared/TasksList/TasksList";
 
 export const defaultSettings = {selectedSort: '', isReversSort: false, search: ''}
 
-const Main = () => {
+const Main = ({visibleMenu}) => {
   const {sort} = useContext(SortContext)
   const {tasks, setTasks} = useContext(TasksContext)
   const sortAndSearchTasks = useSortAndSearchTasks(tasks, sort)
-  const commonTasks = useCommonTasks(sortAndSearchTasks)
-  const favoritesTasks = useFavoritesTasks(sortAndSearchTasks)
+  const commonTasks = useCommonTasks(sortAndSearchTasks, tasks, sort);
+  const favoritesTasks = useFavoritesTasks(sortAndSearchTasks, tasks, sort);
   const [visible, setVisible] = useState(false)
+  const [task, setTask] = useState({Name: "", Body: "", Date: "00:00:00:00"})
 
-  const chooseFavorite = (task) => { // Изменение favorite по нажатию на звездачку
+  const chooseFavorite = (id) => { // Изменение favorite по нажатию на звездачку
     const updatedTasks = [...tasks]; // Создаем копию массива tasks
 
-    if (updatedTasks[task.id - 1].Favorites) {
-      // Обновляем значение Favorites в копии
-      updatedTasks[task.id - 1] = {
-        ...updatedTasks[task.id - 1],
-        Favorites: false
-      };
+    updatedTasks.forEach((t, index) => {
+      if (t.id === id) {
+        if (t.Favorites) {
+          // Обновляем значение Favorites в копии
+          updatedTasks[index] = {
+            ...updatedTasks[index], Favorites: false
+          };
+        } else {
+          updatedTasks[index] = {
+            ...updatedTasks[index], Favorites: true
+          };
+        }
+        setTasks(updatedTasks)
+      }
+    });
+  }
 
-    }else{
-      // Обновляем значение Favorites в копии
-      updatedTasks[task.id - 1] = {
-        ...updatedTasks[task.id - 1],
-        Favorites: true
-      };
-    }
+  const addNewTask = (e) => {
+    e.preventDefault()
+    setTasks([...tasks, {id: Date.now(), ...task, Favorites: false}])
+    console.log(tasks)
+    setTask({Name: "", Body: "", Date: "00:00:00"})
+    setVisible(false)
 
-    setTasks(updatedTasks)
-  };
+  }
+
+  const removeTasks = (delTask) => {
+    setTasks(tasks.filter(task => task.id !== delTask.id))
+  }
 
   return (
-    <div className={styles.main}>
-      <MyAddPanel visible={visible} setVisible={setVisible}/>
+    <div className={visibleMenu ? [styles.main, styles.main_down].join(" ") : styles.main}>
+      <MyAddPanel visible={visible} setVisible={setVisible} task={task} setTask={setTask} addNewTask={addNewTask}/>
       <h2 className={styles.title}>Notes</h2>
       <div className={styles.top}>
-        <MyControlPanel setVisible={setVisible}/>
-        <p className={styles.advise}>Text lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem</p>
+        <div className={styles.top_sort}>
+          <MyControlPanel setVisible={setVisible}/>
+        </div>
+        <p className={styles.advise}>Success does not consist in never making mistakes but in never making the same one
+          a second time.</p>
       </div>
-      <TasksList chooseFavorite={chooseFavorite} tasks={commonTasks}/>
+      <TasksList chooseFavorite={chooseFavorite} tasks={commonTasks} removeTasks={removeTasks}/>
       <h3 className={styles.favorites}>Favorites</h3>
-      <TasksList chooseFavorite={chooseFavorite} tasks={favoritesTasks}/>
+      <TasksList chooseFavorite={chooseFavorite} tasks={favoritesTasks} removeTasks={removeTasks}/>
     </div>
   );
 };

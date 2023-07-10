@@ -1,4 +1,4 @@
-@import '../../../variables';
+@import "../../../styles/variables";
 
 .body_off{
   position: fixed;
@@ -28,10 +28,17 @@
 
   h4{
     margin-bottom: 3px;
+    margin-left: 6px;
   }
 }
 
 .btn{
   display: flex;
   justify-content: end;
+}
+
+.down {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
 }

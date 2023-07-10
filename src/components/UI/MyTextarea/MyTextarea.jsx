@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from "./MyTextarea.module.scss"
 
-const MyTextarea = () => {
+const MyTextarea = ({...props}) => {
   return (
     <div>
-      <textarea className={styles.myTextarea}></textarea>
+      <textarea {...props} className={styles.myTextarea}></textarea>
     </div>
   );
 };

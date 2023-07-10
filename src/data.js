@@ -21,6 +21,27 @@ const tasks = [
     Date: "01:57:30",
     Favorites: false
   },
+  {
+    id: 4,
+    Name: "2Dinner",
+    Body: "22Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false
+  },
+  {
+    id: 5,
+    Name: "3Dinner",
+    Body: "33Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false
+  },
+  {
+    id: 6,
+    Name: "4Dinner",
+    Body: "44Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false
+  },
 ]
 
 export default tasks

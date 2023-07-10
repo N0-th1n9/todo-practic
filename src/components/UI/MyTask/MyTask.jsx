@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import styles from "./MyTask.module.scss"
 
-const MyTask = ({task, chooseFavorite, id}) => {
+const MyTask = ({task, chooseFavorite, removeTasks}) => {
 
   const stylesFavorites = () => {
     if (task.Favorites){
@@ -15,7 +15,10 @@ const MyTask = ({task, chooseFavorite, id}) => {
     <div className={styles.task}>
       <div className={styles.top}>
         <h4>{task.Name}</h4>
-        <button className={stylesFavorites()} onClick={() => chooseFavorite(task)}></button>
+        <div className={styles.btn}>
+          <button className={stylesFavorites()} onClick={() => chooseFavorite(task.id)}></button>
+          <button className={styles.del} onClick={() => removeTasks(task)}></button>
+        </div>
       </div>
       <p>{task.Body}</p>
       <span>{task.Date}</span>

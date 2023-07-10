@@ -1,0 +1,91 @@
+@import "src/styles/variables";
+
+.tasks_container{
+  margin-top: 35px;
+  width: 100%;
+  position: relative;
+}
+.btnShow_container{
+  display: flex;
+  justify-content: right;
+
+}
+.btnShow{
+  margin-bottom: 5px;
+}
+
+.tasks{
+
+  h3{
+    margin: 35px auto 0;
+    display: flex;
+    font-size: 24px;
+    justify-content: center;
+    font-weight: 300;
+    height: 120px;
+  }
+
+  &:hover .btnNavContainer .button-next-slide{
+    opacity: 0.5;
+  }
+  &:hover .btnNavContainer .button-prev-slide{
+    opacity: 0.5;
+  }
+}
+
+.btnNavContainer {
+}
+
+.button-prev-slide {
+  position: absolute;
+  top: 40%;
+  left: 0.4%;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  background-color: #777777;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &:after{
+    content: url("../../../../public/img/left-arrow.svg");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -42%);
+  }
+
+  &:hover {
+    opacity: 0.8 !important;
+  }
+
+}
+.button-next-slide {
+  background-color: #777777;
+  position: absolute;
+  top: 40%;
+  left: 96%;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &:after{
+    content: url("../../../../public/img/rigth-arrow.svg");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -42%);
+  }
+
+  &:hover {
+    opacity: 0.8 !important;
+  }
+}
+
+.swiper-button-disabled{
+  display: none;
+}

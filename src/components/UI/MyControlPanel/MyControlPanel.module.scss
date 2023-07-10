@@ -1,7 +1,11 @@
-
-
 .btns {
   display: flex;
   justify-content: space-between;
   margin-top: 5px;
+}
+
+@media (max-width: 450px) {
+  .btns {
+    display: block;
+  }
 }

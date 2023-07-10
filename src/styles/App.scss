@@ -1,0 +1,16 @@
+@import "variables";
+
+.App{
+    border-radius: 20px;
+    margin: 1vh 1vh;
+    background-color: $bg-color;
+    width: calc(1280px + 0.5vh);
+    height: 98vh;
+    padding: 10px 31px;
+}
+
+@media (max-width: 500px) {
+    .App{
+        padding: 0 18px;
+    }
+}
