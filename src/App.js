@@ -4,6 +4,7 @@ import Main from "./components/elements/Main/Main";
 import {SortProvider} from "./Providers/SortProvider"
 import {TasksProvider} from "./Providers/TasksProvider";
 import {useState} from "react";
+import MyClock from "./components/UI/MyClock/MyClock";
 
 function App() {
   const [visible, setVisible] = useState(false)

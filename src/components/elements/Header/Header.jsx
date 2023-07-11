@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './Header.module.scss'
 import MyBurger from "../../UI/MyBurger/MyBurger";
 import MyMenu from "../../UI/MyMenu/MyMenu";
+import MyClock from "../../UI/MyClock/MyClock";
 
 const Header = ({visible, setVisible}) => {
 
@@ -20,7 +21,12 @@ const Header = ({visible, setVisible}) => {
   return (
     <div>
       <div className={styles.header}>
-        <h1 className={styles.logo}>To<span>Do</span></h1>
+        <div className={styles.left_navbar}>
+          <h1 className={styles.logo}>To<span>Do</span></h1>
+          <div className={styles.clock}>
+            <MyClock/>
+          </div>
+        </div>
         <div className={styles.right_navbar}>
           <div className={styles.right_navbar_info}>
             <a href="">Hello <span>Vladislav</span></a> {/*переделать на Link to*/}

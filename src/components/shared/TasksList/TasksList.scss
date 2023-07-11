@@ -134,3 +134,33 @@
     }
   }
 }
+
+
+.fav_tasks{
+
+  @media (max-width: 440px) {
+    .swiper-wrapper {
+      height: 210px !important;
+    }
+
+    .swiper-slide {
+      overflow: hidden;
+      height: calc((100% - 60px)) !important;
+    }
+
+    .btnNavContainer {
+      height: 68%;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .swiper-wrapper {
+      height: 210px !important;
+    }
+
+    .swiper-slide {
+      overflow: hidden;
+      height: 100% !important;
+    }
+  }
+}
