@@ -39,6 +39,8 @@
   line-height: 28px;
   color: #000000;
 }
+
+
 @media (max-width: 1000px) {
   .top_sort {
     flex-basis: 50% !important;
@@ -47,6 +49,10 @@
   .advise {
     flex-basis: 50% !important;
     padding: 0 0 0 30px !important;
+  }
+
+  .favorites{
+    margin-bottom: -25px;
   }
 }
 
@@ -79,5 +85,11 @@
   .main_down {
     margin-top: 150px;
     transition: all 0.5s ease;
+  }
+}
+
+@media (max-width: 550px) {
+  .favorites {
+    margin-top: 10px;
   }
 }

@@ -15,7 +15,7 @@
 }
 
 .tasks{
-
+  position: relative;
   h3{
     margin: 35px auto 0;
     display: flex;
@@ -34,12 +34,19 @@
 }
 
 .btnNavContainer {
+  width: 100%;
+  height: 93%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
 }
 
 .button-prev-slide {
-  position: absolute;
-  top: 40%;
-  left: 0.4%;
+  position: relative;
   height: 40px;
   width: 40px;
   border-radius: 100%;
@@ -62,10 +69,8 @@
 
 }
 .button-next-slide {
+  position: relative;
   background-color: #777777;
-  position: absolute;
-  top: 40%;
-  left: 96%;
   height: 40px;
   width: 40px;
   border-radius: 100%;
@@ -87,5 +92,45 @@
 }
 
 .swiper-button-disabled{
-  display: none;
+  opacity: 0 !important;
+  z-index: -1;
+  &:hover{
+    opacity: 0 !important;
+  }
+  transition: none;
+}
+
+@media (max-width: 1000px) {
+  .button-prev-slide,
+  .button-next-slide {
+   opacity: 0.6;
+  }
+}
+
+@media (max-width: 550px) {
+  .swiper-wrapper {
+    height: 443px !important;
+  }
+
+  .swiper-slide {
+    overflow: hidden;
+    height: calc((100% - 30px) / 2) !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .swiper-wrapper {
+    height: 480px !important;
+  }
+
+  .swiper-slide {
+    overflow: hidden;
+    height: calc((100% - 60px) / 3) !important;
+  }
+
+  .tasks{
+    h3{
+      height: 50px;
+    }
+  }
 }

@@ -5,7 +5,6 @@ import MyMenu from "../../UI/MyMenu/MyMenu";
 
 const Header = ({visible, setVisible}) => {
 
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 700) setVisible(false)

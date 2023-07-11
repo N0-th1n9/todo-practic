@@ -2,10 +2,12 @@
 
 .App{
     border-radius: 20px;
-    margin: 1vh 1vh;
+    margin: 1vh;
     background-color: $bg-color;
     width: calc(1280px + 0.5vh);
-    height: 98vh;
+    max-width: 98%;
+    height: 98%;
+    min-height: 98vh;
     padding: 10px 31px;
 }
 

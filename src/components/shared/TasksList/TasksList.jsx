@@ -2,7 +2,7 @@ import React from 'react';
 import MyTask from "../../UI/MyTask/MyTask";
 import './TasksList.scss'
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation} from 'swiper';
+import {Navigation, Grid} from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
 const TasksList = ({chooseFavorite, tasks, removeTasks}) => {
@@ -15,19 +15,36 @@ const TasksList = ({chooseFavorite, tasks, removeTasks}) => {
         {tasks.length
           ?
           <Swiper
-            modules={[Navigation]}
-            mousewheel={{
-              sensitivity: 1,
-            }}
-            direction={'horizontal'}
+            modules={[Navigation, Grid]}
             spaceBetween={30}
-            slidesPerView={3}
+            slidesPerView= {2}
+            autoHeight={false}
             navigation={{
               nextEl: ".button-next-slide",
               prevEl: ".button-prev-slide"
             }}
             breakpoints={{
-              1300: {
+              0: {
+                slidesPerView: 1,
+                grid: {
+                  rows: 3
+                }
+              },
+              440: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+                grid: {
+                  rows: 2
+                }
+              },
+              551: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+                grid: {
+                  rows: 1
+                }
+              },
+              850: {
                 slidesPerView: 3,
                 spaceBetween: 30,
               }
@@ -48,33 +65,6 @@ const TasksList = ({chooseFavorite, tasks, removeTasks}) => {
           <h3>Tasks is not found</h3>}
       </div>
     </div>
-
-
-    // <div className="tasks_container">
-    //   <div className="btnShow_container">
-    //     <button className="btnShow">show all</button>
-    //   </div>
-    //   <div className="tasks">
-    //     <Swiper
-    //       modules={[Navigation]}
-    //       spaceBetween={50}
-    //       slidesPerView={3}
-    //     >
-    //       {tasks.length
-    //         ?
-    //         <SwiperSlide>
-    //           {tasks.map((task, index) => (
-    //             <MyTask key={index} task={task} id={index} chooseFavorite={chooseFavorite} removeTasks={removeTasks}/>))}
-    //         </SwiperSlide>
-    //         :
-    //         <h3>Tasks is not found</h3>}
-    //     </Swiper>
-    //   </div>
-    //   <div className="btnNavContainer">
-    //     <button className="btn_prevEl"></button>
-    //     <button className="btn_nextEl"></button>
-    //   </div>
-    // </div>
   );
 };
 
