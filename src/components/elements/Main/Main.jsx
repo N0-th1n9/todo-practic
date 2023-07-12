@@ -8,16 +8,17 @@ import {useFavoritesTasks} from "../../../hooks/useDistributionTasks";
 import MyControlPanel from "../../UI/MyControlPanel/MyControlPanel";
 import MyAddPanel from "../../UI/MyAddPanel/MyAddPanel";
 import TasksList from "../../shared/TasksList/TasksList";
+import {VisibleMenu} from "../../../Providers/VisibleMenu";
 
 export const defaultSettings = {selectedSort: '', isReversSort: false, search: ''}
 
-const Main = ({visibleMenu}) => {
+const Main = () => {
   const {sort} = useContext(SortContext)
   const {tasks, setTasks} = useContext(TasksContext)
+  const {visibleMenu, setVisibleMenu} = useContext(VisibleMenu)
   const sortAndSearchTasks = useSortAndSearchTasks(tasks, sort)
   const commonTasks = useCommonTasks(sortAndSearchTasks, tasks, sort);
   const favoritesTasks = useFavoritesTasks(sortAndSearchTasks, tasks, sort);
-  const [visible, setVisible] = useState(false)
   const [task, setTask] = useState({Name: "", Body: "", Date: "00:00:00:00"})
 
   const chooseFavorite = (id) => { // Изменение favorite по нажатию на звездачку
@@ -45,7 +46,7 @@ const Main = ({visibleMenu}) => {
     setTasks([...tasks, {id: Date.now(), ...task, Favorites: false}])
     console.log(tasks)
     setTask({Name: "", Body: "", Date: "00:00:00"})
-    setVisible(false)
+    setVisibleMenu(false)
 
   }
 
@@ -55,11 +56,11 @@ const Main = ({visibleMenu}) => {
 
   return (
     <div className={visibleMenu ? [styles.main, styles.main_down].join(" ") : styles.main}>
-      <MyAddPanel visible={visible} setVisible={setVisible} task={task} setTask={setTask} addNewTask={addNewTask}/>
+      <MyAddPanel visible={visibleMenu} setVisible={setVisibleMenu} task={task} setTask={setTask} addNewTask={addNewTask}/>
       <h2 className={styles.title}>Notes</h2>
       <div className={styles.top}>
         <div className={styles.top_sort}>
-          <MyControlPanel setVisible={setVisible}/>
+          <MyControlPanel setVisible={setVisibleMenu}/>
         </div>
         <p className={styles.advise}>Success does not consist in never making mistakes but in never making the same one
           a second time.</p>

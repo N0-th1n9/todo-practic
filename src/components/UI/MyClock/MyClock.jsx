@@ -13,7 +13,7 @@ const MyClock = () => {
   });
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    setInterval(() => {
       const currentDate = new Date();
       setTime({
         hours: currentDate.getHours(),

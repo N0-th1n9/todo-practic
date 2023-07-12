@@ -1,20 +1,31 @@
 import './styles/App.scss';
-import Header from "./components/elements/Header/Header";
-import Main from "./components/elements/Main/Main";
 import {SortProvider} from "./Providers/SortProvider"
 import {TasksProvider} from "./Providers/TasksProvider";
-import {useState} from "react";
-import MyClock from "./components/UI/MyClock/MyClock";
+import React from "react";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import Header from "./components/elements/Header/Header";
+import {routes} from "./router/router";
+import {VisibleMenuProvider} from "./Providers/VisibleMenu";
 
 function App() {
-  const [visible, setVisible] = useState(false)
-
   return (
     <div className="App">
-      <Header visible={visible} setVisible={setVisible}/>
       <TasksProvider>
         <SortProvider>
-          <Main visibleMenu={visible}/>
+          <VisibleMenuProvider>
+            <BrowserRouter>
+              <Header/>
+              <Routes>
+                {routes.map(route =>
+                  <Route
+                    path={route.path}
+                    element={route.element}
+                  />
+                )}
+                <Route path="/*" element={<Navigate to="/"/>} />
+              </Routes>
+            </BrowserRouter>
+          </VisibleMenuProvider>
         </SortProvider>
       </TasksProvider>
     </div>

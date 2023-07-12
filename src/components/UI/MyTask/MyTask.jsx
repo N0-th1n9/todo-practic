@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import styles from "./MyTask.module.scss"
 
 const MyTask = ({task, chooseFavorite, removeTasks}) => {

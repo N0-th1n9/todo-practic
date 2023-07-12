@@ -3,7 +3,7 @@ import styles from './MyInput.module.scss'
 import {SortContext} from "../../../Providers/SortProvider";
 
 const MyInputSearch = ({...props}) => {
-  const {sort, setSort} = useContext(SortContext)
+  const {setSort} = useContext(SortContext)
 
   return (
     <div className={styles.divMyInput}>
