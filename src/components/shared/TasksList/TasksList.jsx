@@ -85,8 +85,8 @@ const TasksList = ({chooseFavorite, tasks, removeTasks, favTasks}) => {
           ?
           <Swiper {...swiperParams}>
             {tasks.map((task, index) => (
-              <SwiperSlide>
-                <MyTask key={index} task={task} id={index} chooseFavorite={chooseFavorite}
+              <SwiperSlide key={index}>
+                <MyTask task={task} id={index} chooseFavorite={chooseFavorite}
                         removeTasks={removeTasks}/>
               </SwiperSlide>))}
 

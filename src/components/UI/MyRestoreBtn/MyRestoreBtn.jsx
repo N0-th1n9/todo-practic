@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import styles from "./MyRestoreBtn.module.scss"
 import {SortContext} from "../../../Providers/SortProvider";
-import {defaultSettings} from "../../elements/Main/Main";
+import {defaultSettings} from "../../elements/MainHome/MainHome";
 
 const MySortBtn = ({...props}) => {
   const {setSort} = useContext(SortContext)

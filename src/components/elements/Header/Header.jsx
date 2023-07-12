@@ -18,7 +18,7 @@ const Header = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [setVisibleMenu]);
 
   return (
     <div>

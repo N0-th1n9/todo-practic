@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import styles from './Main.module.scss'
+import styles from './MainHome.module.scss'
 import {useSortAndSearchTasks} from "../../../hooks/useSortTasks";
 import {SortContext} from "../../../Providers/SortProvider";
 import {TasksContext} from "../../../Providers/TasksProvider";
@@ -12,10 +12,10 @@ import {VisibleMenu} from "../../../Providers/VisibleMenu";
 
 export const defaultSettings = {selectedSort: '', isReversSort: false, search: ''}
 
-const Main = () => {
+const MainHome = () => {
   const {sort} = useContext(SortContext)
   const {tasks, setTasks} = useContext(TasksContext)
-  const {visibleMenu, setVisibleMenu} = useContext(VisibleMenu)
+  const {visibleMenu} = useContext(VisibleMenu)
   const sortAndSearchTasks = useSortAndSearchTasks(tasks, sort)
   const commonTasks = useCommonTasks(sortAndSearchTasks, tasks, sort);
   const favoritesTasks = useFavoritesTasks(sortAndSearchTasks, tasks, sort);
@@ -75,4 +75,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainHome;
