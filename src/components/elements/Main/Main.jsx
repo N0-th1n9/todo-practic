@@ -19,6 +19,7 @@ const Main = () => {
   const sortAndSearchTasks = useSortAndSearchTasks(tasks, sort)
   const commonTasks = useCommonTasks(sortAndSearchTasks, tasks, sort);
   const favoritesTasks = useFavoritesTasks(sortAndSearchTasks, tasks, sort);
+  const [visible, setVisible] = useState(false)
   const [task, setTask] = useState({Name: "", Body: "", Date: "00:00:00:00"})
 
   const chooseFavorite = (id) => { // Изменение favorite по нажатию на звездачку
@@ -46,7 +47,7 @@ const Main = () => {
     setTasks([...tasks, {id: Date.now(), ...task, Favorites: false}])
     console.log(tasks)
     setTask({Name: "", Body: "", Date: "00:00:00"})
-    setVisibleMenu(false)
+    setVisible(false)
 
   }
 
@@ -56,11 +57,11 @@ const Main = () => {
 
   return (
     <div className={visibleMenu ? [styles.main, styles.main_down].join(" ") : styles.main}>
-      <MyAddPanel visible={visibleMenu} setVisible={setVisibleMenu} task={task} setTask={setTask} addNewTask={addNewTask}/>
+      <MyAddPanel visible={visible} setVisible={setVisible} task={task} setTask={setTask} addNewTask={addNewTask}/>
       <h2 className={styles.title}>Notes</h2>
       <div className={styles.top}>
         <div className={styles.top_sort}>
-          <MyControlPanel setVisible={setVisibleMenu}/>
+          <MyControlPanel setVisible={setVisible}/>
         </div>
         <p className={styles.advise}>Success does not consist in never making mistakes but in never making the same one
           a second time.</p>
