@@ -1,18 +1,37 @@
 @import "variables";
 
-.App{
-    border-radius: 20px;
-    margin: 1vh;
-    background-color: $bg-color;
-    width: calc(1280px + 0.5vh);
-    max-width: 98%;
-    height: 98%;
-    min-height: 98vh;
-    padding: 10px 31px;
+.App {
+  border-radius: 20px;
+  margin: 1vh;
+  background-color: $bg-color;
+  width: calc(1280px + 0.5vh);
+  max-width: 98%;
+  height: 98%;
+  min-height: 98vh;
+  padding: 10px 31px;
 }
 
 @media (max-width: 500px) {
-    .App{
-        padding: 0 18px;
-    }
+  .App {
+    padding: 0 18px;
+  }
+}
+
+h2 {
+  font-weight: 400 !important;
+  font-size: 30px !important;
+  line-height: 37px;
+  margin-bottom: 30px !important;
+}
+
+h3 {
+  font-weight: 400 !important;
+  font-size: 23px !important;
+  line-height: 37px;
+}
+
+p {
+  font-weight: 300 !important;
+  font-size: 20px !important;
+  line-height: 23px !important;
 }

@@ -1,12 +1,10 @@
 import React from 'react';
+import MainAbout from "../components/elements/MainAbout/MainAbout";
 
 const About = () => {
   return (
     <div>
-      <h1>About</h1>
-      <p>This project was created for react js training. </p>
-      <p>My contacts</p>
-      <p><span>GitHub</span> <span>https://github.com/ThisIsVladis</span></p>
+      <MainAbout/>
     </div>
   );
 };

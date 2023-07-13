@@ -1,5 +1,11 @@
 .main {
   transition: all 0.5s ease;
+  margin-top: 60px;
+
+  h3 {
+    margin-top: 53px;
+    margin-bottom: -25px;
+  }
 }
 
 .main_down {
@@ -7,15 +13,8 @@
   transition: all 0.5s ease;
 }
 
-.title {
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 37px;
-}
-
 .top {
   display: flex;
-  margin-top: 27px;
   justify-content: space-between;
 
   .top_sort {
@@ -24,20 +23,9 @@
 
   .advise {
     flex-basis: 60%;
-    font-weight: 300;
-    font-size: 20px;
-    line-height: 23px;
     text-align: center;
     padding: 0 80px;
   }
-}
-
-.favorites {
-  margin-top: 53px;
-  margin-bottom: -25px;
-  font-size: 24px;
-  line-height: 28px;
-  color: #000000;
 }
 
 

@@ -1,0 +1,32 @@
+.about {
+  margin-top: 60px;
+  transition: all 0.5s ease;
+
+  h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .git {
+    display: flex;
+    align-items: center;
+    gap: 5px
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.about_down {
+  margin-top: 180px;
+  transition: all 0.5s ease;
+}
+
+@media (max-width: 555px) {
+  .about_down {
+    margin-top: 150px;
+    transition: all 0.5s ease;
+  }
+}

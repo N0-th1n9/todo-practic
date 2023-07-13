@@ -58,7 +58,7 @@ const MainHome = () => {
   return (
     <div className={visibleMenu ? [styles.main, styles.main_down].join(" ") : styles.main}>
       <MyAddPanel visible={visible} setVisible={setVisible} task={task} setTask={setTask} addNewTask={addNewTask}/>
-      <h2 className={styles.title}>Notes</h2>
+      <h2>Notes</h2>
       <div className={styles.top}>
         <div className={styles.top_sort}>
           <MyControlPanel setVisible={setVisible}/>
@@ -66,7 +66,7 @@ const MainHome = () => {
         <p className={styles.advise}>Success does not consist in never making mistakes but in never making the same one
           a second time.</p>
       </div>
-      <h3 className={styles.favorites}>Favorites</h3>
+      <h3>Favorites</h3>
       <TasksList chooseFavorite={chooseFavorite} tasks={favoritesTasks} removeTasks={removeTasks} favTasks = {true}/>
       <div className={styles.difTasks}>
         <TasksList chooseFavorite={chooseFavorite} tasks={commonTasks} removeTasks={removeTasks} favTasks = {false}/>
