@@ -1,11 +1,14 @@
-import React from 'react';
-import MyInput from "../MyInput/MyInput";
+import React, {useState} from 'react';
+import MyInput from "../../UI/MyInput/MyInput";
 import styles from './MyAddPanel.module.scss'
-import MyTextarea from "../MyTextarea/MyTextarea";
-import MyAddButton from "../MyAddButton/MyAddButton";
+import MyTextarea from "../../UI/MyTextarea/MyTextarea";
+import MyAddButton from "../../UI/MyAddButton/MyAddButton";
+import {useAddNewTasks} from "../../../hooks/WorkWithTasks";
 
-const MyAddPanel = ({visible, setVisible, task, setTask, addNewTask}) => {
+const MyAddPanel = ({visible, setVisible}) => {
   const rootClasses = [styles.body_off]
+  const [task, setTask] = useState({Name: "", Body: "", Date: "00:00:00:00"})
+  const addNewTasks = useAddNewTasks()
 
   if (visible) {
     rootClasses.push(styles.body_on)
@@ -29,7 +32,7 @@ const MyAddPanel = ({visible, setVisible, task, setTask, addNewTask}) => {
               <MyInput value={task.Date} onChange={e => setTask({...task, Date: e.target.value})}/>
             </div>
             <div className={styles.btn}>
-              <MyAddButton onClick={addNewTask}/>
+              <MyAddButton onClick={e => addNewTasks(e, task, setTask, setVisible)}/>
             </div>
           </div>
         </form>

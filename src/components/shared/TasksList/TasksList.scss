@@ -1,7 +1,7 @@
 @import "src/styles/variables";
 
 .tasks_container{
-  margin-top: 35px;
+  margin-top: 50px;
   width: 100%;
   position: relative;
 }
@@ -9,9 +9,6 @@
   display: flex;
   justify-content: right;
 
-}
-.btnShow{
-  margin-bottom: 5px;
 }
 
 .tasks{
@@ -21,7 +18,7 @@
     display: flex;
     font-size: 24px;
     justify-content: center;
-    font-weight: 300;
+    font-weight: 300 !important;
     height: 120px;
   }
 
@@ -35,7 +32,7 @@
 
 .btnNavContainer {
   width: 100%;
-  height: 93%;
+  height: 100%;
   top: 0;
   left: 0;
   position: absolute;

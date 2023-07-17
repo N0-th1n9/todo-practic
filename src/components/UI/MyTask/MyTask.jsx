@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./MyTask.module.scss"
+import {useChooseFavorite, useRemoveTasks} from "../../../hooks/WorkWithTasks";
 
-const MyTask = ({task, chooseFavorite, removeTasks}) => {
+const MyTask = ({task}) => {
+  const removeTasks = useRemoveTasks()
+  const chooseFavorite = useChooseFavorite()
 
   const stylesFavorites = () => {
     if (task.Favorites){

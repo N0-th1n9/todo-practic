@@ -6,6 +6,7 @@ import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Header from "./components/elements/Header/Header";
 import {routes} from "./router/router";
 import {VisibleMenuProvider} from "./Providers/VisibleMenu";
+import './styles/mediaQueries.scss'
 
 function App() {
   return (

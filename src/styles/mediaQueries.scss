@@ -1,0 +1,38 @@
+@media (max-width: 1000px) {
+  .top_sort {
+    flex-basis: 50% !important;
+  }
+
+  .advise {
+    flex-basis: 50% !important;
+    padding: 0 0 0 30px !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 200px 0 0;
+  }
+
+  .advise {
+    text-align: left !important;
+    padding: 0 !important;
+  }
+}
+
+
+@media (max-width: 655px) {
+  .top {
+    padding: 0 100px 0 0;
+  }
+}
+
+@media (max-width: 555px) {
+  .top {
+    gap: 30px;
+    padding: 0 0 0 0;
+  }
+}

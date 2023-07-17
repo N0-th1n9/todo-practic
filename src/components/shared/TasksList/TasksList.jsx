@@ -2,16 +2,18 @@ import React from 'react';
 import MyTask from "../../UI/MyTask/MyTask";
 import './TasksList.scss'
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {Navigation, Grid} from 'swiper';
+import {Grid, Navigation} from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
-const TasksList = ({chooseFavorite, tasks, removeTasks, favTasks}) => {
+const TasksList = ({chooseFavorite, tasks, favTasks}) => {
+
   const swiperParams = favTasks ?
     {
       modules: [Navigation, Grid],
       spaceBetween: 30,
       slidesPerView: 2,
       autoHeight: false,
+      slideToClickedSlide: true,
       navigation: {
         nextEl: ".button-next-slide",
         prevEl: ".button-prev-slide"
@@ -43,6 +45,7 @@ const TasksList = ({chooseFavorite, tasks, removeTasks, favTasks}) => {
       spaceBetween: 30,
       slidesPerView: 2,
       autoHeight: false,
+      slideToClickedSlide: true,
       navigation: {
         nextEl: ".button-next-slide",
         prevEl: ".button-prev-slide"
@@ -77,17 +80,13 @@ const TasksList = ({chooseFavorite, tasks, removeTasks, favTasks}) => {
 
   return (
     <div className="tasks_container">
-      <div className="btnShow_container">
-        <button className="btnShow">show all</button>
-      </div>
       <div className={favTasks ? "tasks fav_tasks" :"tasks"}>
         {tasks.length
           ?
           <Swiper {...swiperParams}>
             {tasks.map((task, index) => (
-              <SwiperSlide key={index}>
-                <MyTask task={task} id={index} chooseFavorite={chooseFavorite}
-                        removeTasks={removeTasks}/>
+              <SwiperSlide key={index} onClick={() => console.log(index)}>
+                <MyTask task={task} id={index} chooseFavorite={chooseFavorite}/>
               </SwiperSlide>))}
 
             <div className="btnNavContainer">

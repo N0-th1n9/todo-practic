@@ -1,0 +1,40 @@
+@import "../../../styles/variables";
+
+.account {
+  margin-top: 60px;
+  transition: all 0.5s ease;
+
+  span {
+    color: $active-color
+  }
+
+}
+
+.account_down {
+  margin-top: 180px;
+  transition: all 0.5s ease;
+}
+
+.account_top{
+  margin-bottom: 60px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left_stats {
+
+}
+
+.right_stats {
+  background-color: $main-color;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px;
+  margin-top: 20px;
+}

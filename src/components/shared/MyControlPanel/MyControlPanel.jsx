@@ -1,7 +1,7 @@
 import React from 'react';
-import MyInputSearch from "../MyInputSearch/MyInputSearch";
-import SortNavigation from "../../shared/SortButtons/SortNavigation";
-import MyAddButton from "../MyAddButton/MyAddButton";
+import MyInputSearch from "../../UI/MyInputSearch/MyInputSearch";
+import SortNavigation from "../SortButtons/SortNavigation";
+import MyAddButton from "../../UI/MyAddButton/MyAddButton";
 import styles from "./MyControlPanel.module.scss"
 
 const MyControlPanel = ({setVisible}) => {
