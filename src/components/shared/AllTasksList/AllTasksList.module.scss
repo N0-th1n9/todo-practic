@@ -1,0 +1,40 @@
+.tasks_wrap {
+  min-height: 244px;
+  width: 100%;
+  margin-right: 13px;
+}
+
+.tasks{
+  display: grid;
+  width: 100%;
+  grid-template: 1fr / repeat(3, calc(33.6% - 14px));
+  gap: 20px;
+  grid-auto-flow: row;
+  margin-top: 15px;
+}
+
+.notfound {
+  margin: 35px auto 0;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  font-weight: 300 !important;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+}
+
+@media (max-width: 700px) {
+  .tasks {
+    grid-template: 1fr / repeat(2, calc(50% - 10px));
+  }
+}
+
+@media (max-width: 440px) {
+  .tasks_wrap {
+    min-height: 195px !important;
+  }
+
+  .tasks {
+    grid-template: 1fr / calc(100% - 3px);
+  }
+}

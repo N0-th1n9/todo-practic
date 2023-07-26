@@ -5,7 +5,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import {Grid, Navigation} from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 
-const TasksList = ({chooseFavorite, tasks, favTasks}) => {
+const TasksList = ({tasks, favTasks}) => {
 
   const swiperParams = favTasks ?
     {
@@ -22,7 +22,7 @@ const TasksList = ({chooseFavorite, tasks, favTasks}) => {
         0: {
           slidesPerView: 1,
         },
-        440: {
+        441: {
           slidesPerView: 2,
           spaceBetween: 15,
         },
@@ -57,7 +57,7 @@ const TasksList = ({chooseFavorite, tasks, favTasks}) => {
             rows: 3
           }
         },
-        440: {
+        441: {
           slidesPerView: 2,
           spaceBetween: 15,
           grid: {
@@ -86,9 +86,8 @@ const TasksList = ({chooseFavorite, tasks, favTasks}) => {
           <Swiper {...swiperParams}>
             {tasks.map((task, index) => (
               <SwiperSlide key={index} onClick={() => console.log(index)}>
-                <MyTask task={task} id={index} chooseFavorite={chooseFavorite}/>
+                <MyTask task={task} id={index}/>
               </SwiperSlide>))}
-
             <div className="btnNavContainer">
               <button className="button-prev-slide"></button>
               <button className="button-next-slide"></button>

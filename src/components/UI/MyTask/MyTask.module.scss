@@ -7,6 +7,7 @@
   text-align: left;
   font-size: 20px;
   position: relative;
+  max-width: 388px;
 
   .top {
     display: flex;
@@ -15,7 +16,7 @@
   }
 
   h4 {
-    width: 250px;
+    max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -73,7 +74,6 @@
 }
 
 @media (max-width: 550px) {
-
   .favorite_off,
   .favorite_on {
     margin-left: 5px;

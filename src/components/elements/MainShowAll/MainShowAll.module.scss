@@ -16,16 +16,16 @@
   }
 }
 
-.tasks_container {
-  h3{
-    margin-top: 45px;
-    margin-bottom: -35px;
+.all_tasks {
+  width: 100%;
+  transition: all 0.5s ease;
+
+  h3 {
+    margin-top: 35px;
   }
 }
 
-.tasks{
-  display: grid;
-  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  gap: 20px;
-  grid-auto-flow: row;
+.all_tasks__down {
+  margin-top: 180px;
+  transition: all 0.5s ease;
 }

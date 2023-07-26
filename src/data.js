@@ -1,11 +1,14 @@
 const tasks = [
+  // Если 0 - то task создан менее 24 часов назад
+  // Если 1 - то task создан более чем 24 часов назад, но меньше чем 7 дней назад
+  // Если 2 - то task создан более чем 7 дней назад
   {
     id: 1,
     Name: "Buy Groceries",
     Body: "Buy groceries for the week. Don't forget to get some fruits and vegetables.",
     Date: "10:12:45",
     Favorites: true,
-    From_creation: 0,
+    From_creation: "Today",
   },
   {
     id: 2,
@@ -14,7 +17,7 @@ const tasks = [
       "Send her some flowers too. Call Mom to wish her a happy birthday. Send her some flowers too.",
     Date: "16:30:00",
     Favorites: false,
-    From_creation: 8,
+    From_creation: "Last 7 days",
   },
   {
     id: 3,
@@ -22,15 +25,56 @@ const tasks = [
     Body: "Buy groceries for the week. Don't forget to get some fruits and vegetables.",
     Date: "01:57:30",
     Favorites: false,
-    From_creation: 1,
+    From_creation: "Last 7 days",
   },
+  {
+    id: 3,
+    Name: "Dinner",
+    Body: "Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false,
+    From_creation: "Last 7 days",
+  },
+  {
+    id: 3,
+    Name: "Dinner",
+    Body: "Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false,
+    From_creation: "Last 7 days",
+  },
+  {
+    id: 3,
+    Name: "Dinner",
+    Body: "Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false,
+    From_creation: "Last 7 days",
+  },
+  {
+    id: 3,
+    Name: "Dinner",
+    Body: "Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false,
+    From_creation: "Last 7 days",
+  },
+  {
+    id: 3,
+    Name: "Dinner",
+    Body: "Buy groceries for the week. Don't forget to get some fruits and vegetables.",
+    Date: "01:57:30",
+    Favorites: false,
+    From_creation: "Last 7 days",
+  },
+
   {
     id: 4,
     Name: "2Dinner",
     Body: "22Buy groceries for the week. Don't forget to get some fruits and vegetables.",
     Date: "01:57:30",
     Favorites: false,
-    From_creation: 4,
+    From_creation: "More 7 days",
   },
   {
     id: 5,
@@ -38,7 +82,7 @@ const tasks = [
     Body: "33Buy groceries for the week. Don't forget to get some fruits and vegetables.",
     Date: "01:57:30",
     Favorites: false,
-    From_creation: 7,
+    From_creation: "More 7 days",
   },
   {
     id: 6,
@@ -46,7 +90,7 @@ const tasks = [
     Body: "44Buy groceries for the week. Don't forget to get some fruits and vegetables.",
     Date: "01:57:30",
     Favorites: false,
-    From_creation: 1,
+    From_creation: "Last 7 days",
   },
 ]
 

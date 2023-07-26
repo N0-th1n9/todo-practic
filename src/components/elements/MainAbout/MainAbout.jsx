@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import styles from './MainAbout.module.scss'
-import {VisibleMenu} from "../../../Providers/VisibleMenu";
+import {VisibleMenuContext} from "../../../Providers/VisibleMenuProvider";
 
 const MainAbout = () => {
-  const {visibleMenu} = useContext(VisibleMenu)
+  const {visibleMenu} = useContext(VisibleMenuContext)
 
   return (
     <div className={visibleMenu ? [styles.about, styles.about_down].join(" ") : styles.about}>

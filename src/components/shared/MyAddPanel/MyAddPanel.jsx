@@ -1,21 +1,23 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import MyInput from "../../UI/MyInput/MyInput";
 import styles from './MyAddPanel.module.scss'
 import MyTextarea from "../../UI/MyTextarea/MyTextarea";
 import MyAddButton from "../../UI/MyAddButton/MyAddButton";
 import {useAddNewTasks} from "../../../hooks/WorkWithTasks";
+import {VisiblePanelsContext} from "../../../Providers/VisiblePanelsProvider";
 
-const MyAddPanel = ({visible, setVisible}) => {
-  const rootClasses = [styles.body_off]
+const MyAddPanel = () => {
+  const {visiblePanel, setVisiblePanel} = useContext(VisiblePanelsContext)
   const [task, setTask] = useState({Name: "", Body: "", Date: "00:00:00:00"})
   const addNewTasks = useAddNewTasks()
 
-  if (visible) {
+  const rootClasses = [styles.body_off]
+  if (visiblePanel.addPanel) {
     rootClasses.push(styles.body_on)
   }
 
   return (
-    <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
+    <div className={rootClasses.join(' ')} onClick={() => setVisiblePanel({...visiblePanel, addPanel: false})}>
       <div className={styles.container} onClick={e => e.stopPropagation()}>
         <form action="" className={styles.panel}>
           <div>
@@ -32,7 +34,7 @@ const MyAddPanel = ({visible, setVisible}) => {
               <MyInput value={task.Date} onChange={e => setTask({...task, Date: e.target.value})}/>
             </div>
             <div className={styles.btn}>
-              <MyAddButton onClick={e => addNewTasks(e, task, setTask, setVisible)}/>
+              <MyAddButton onClick={e => addNewTasks(e, task, setTask, visiblePanel, setVisiblePanel)}/>
             </div>
           </div>
         </form>

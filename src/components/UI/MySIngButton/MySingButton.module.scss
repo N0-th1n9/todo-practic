@@ -1,0 +1,22 @@
+@import "src/styles/variables";
+
+.btn {
+  background: $main-color;
+  border-radius: 30px;
+  padding: 13px 16px;
+  font-weight: 300;
+  line-height: 15px;
+  transition: background-color 0.6s;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+.btn_active {
+  background: $active-color;
+
+  &:hover {
+    background-color: $active-color;
+  }
+}

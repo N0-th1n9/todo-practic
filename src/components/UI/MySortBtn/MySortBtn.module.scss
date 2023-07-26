@@ -8,32 +8,37 @@
   line-height: 15px;
   transition: background-color 0.6s;
 
-  &::after{
+  &::after {
     display: inline-block;
     content: url("../../../../public/img/icon-arrow.svg");
     margin-left: 13px;
     transform: translateY(-7%);
   }
-  &:hover{
+
+  &:hover {
     background-color: $hover-color;
   }
 }
 
 .btn_active {
   background: $active-color;
-  &:hover{
+
+  &:hover {
     background-color: $active-color;
   }
 }
+
 .btn_active_reverse {
   background: $active-color;
-  &::after{
+
+  &::after {
     display: inline-block;
     content: url("../../../../public/img/icon-arrow.svg");
     margin-left: 13px;
     transform: rotate(180deg) translateY(-20%);
   }
-  &:hover{
+
+  &:hover {
     background-color: $active-color;
   }
 }

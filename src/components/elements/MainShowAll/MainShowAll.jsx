@@ -1,14 +1,14 @@
 import React, {useContext} from 'react';
 import styles from './MainShowAll.module.scss'
 import MyInputSearch from "../../UI/MyInputSearch/MyInputSearch";
-import MyTask from "../../UI/MyTask/MyTask";
-import {TasksContext} from "../../../Providers/TasksProvider";
+import AllTasksList from "../../shared/AllTasksList/AllTasksList";
+import {VisibleMenuContext} from "../../../Providers/VisibleMenuProvider";
 
 const MainShowAll = () => {
-  const {tasks} = useContext(TasksContext)
+  const {visibleMenu} = useContext(VisibleMenuContext)
 
   return (
-    <div>
+    <div className={visibleMenu ? [styles.all_tasks, styles.all_tasks__down].join(" ") : styles.all_tasks}>
       <h2>Notes</h2>
       <div className={styles.top}>
         <div className={styles.top_sort}>
@@ -17,21 +17,9 @@ const MainShowAll = () => {
         <p className={styles.advise}>Success does not consist in never making mistakes but in never making the same one
           a second time.</p>
       </div>
-
-      <section className={styles.tasks_container}>
-        <h3>Today</h3>
-        <div className={styles.tasks}>
-          {tasks.map(task =>
-            <MyTask task={task}/>
-          )}
-        </div>
-      </section>
-      <section>
-        <h3>Last 7 days</h3>
-      </section>
-      <section>
-        <h3>More 7 days</h3>
-      </section>
+      <AllTasksList type="Today"/>
+      <AllTasksList type="Last 7 days"/>
+      <AllTasksList type="More 7 days"/>
     </div>
   );
 };

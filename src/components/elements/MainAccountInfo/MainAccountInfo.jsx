@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
 import styles from './MainAccountInfo.module.scss'
-import {VisibleMenu} from "../../../Providers/VisibleMenu";
-import {statsDays, statsAll} from "../../../Stats";
+import {statsAll, statsDays} from "../../../Stats";
 import StatsList from "../../shared/StatsList/StatsList";
+import {VisibleMenuContext} from "../../../Providers/VisibleMenuProvider";
 
 const MainAccountInfo = () => {
-  const {visibleMenu} = useContext(VisibleMenu)
+  const {visibleMenu} = useContext(VisibleMenuContext)
 
   return (
     <div className={visibleMenu ? [styles.account, styles.account_down].join(" ") : styles.account}>

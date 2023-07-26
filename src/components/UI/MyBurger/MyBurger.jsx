@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import styles from './MyBurger.module.scss'
-import {VisibleMenu} from "../../../Providers/VisibleMenu";
+import {VisibleMenuContext} from "../../../Providers/VisibleMenuProvider";
 
-const MyBurger = ({visible}) => {
-  const {visibleMenu, setVisibleMenu} = useContext(VisibleMenu)
+const MyBurger = () => {
+  const {visibleMenu, setVisibleMenu} = useContext(VisibleMenuContext)
 
   const changeVisibleMenu = () => {
     setVisibleMenu(!visibleMenu)
@@ -11,12 +11,12 @@ const MyBurger = ({visible}) => {
 
   return (
     <button className={styles.btn} onClick={() => changeVisibleMenu()}>
-      <div className={visible ?  [styles.burger, styles.burger_off].join(" ") : styles.burger}>
+      <div className={visibleMenu ?  [styles.burger, styles.burger_off].join(" ") : styles.burger}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div className={visible ? styles.cross : [styles.cross, styles.cross_off].join(" ")}>
+      <div className={visibleMenu ? styles.cross : [styles.cross, styles.cross_off].join(" ")}>
         <span></span>
         <span></span>
       </div>

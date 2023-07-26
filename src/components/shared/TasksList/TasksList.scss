@@ -4,6 +4,7 @@
   margin-top: 50px;
   width: 100%;
   position: relative;
+  min-height: 193px;
 }
 .btnShow_container{
   display: flex;
@@ -113,9 +114,18 @@
     overflow: hidden;
     height: calc((100% - 30px) / 2) !important;
   }
+  .tasks {
+    .btnNavContainer {
+      height: 93%;
+    }
+  }
 }
 
 @media (max-width: 440px) {
+  .tasks_container{
+    min-height: 140px;
+  }
+
   .swiper-wrapper {
     height: 480px !important;
   }

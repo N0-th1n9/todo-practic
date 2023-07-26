@@ -5,13 +5,12 @@ import {TasksContext} from "../Providers/TasksProvider";
 export const useAddNewTasks = () => {
   const {tasks, setTasks} = useContext(TasksContext)
 
-
-  return (e, task, setTask, setVisible) => {
+  return (e, task, setTask, visiblePanel, setVisiblePanel) => {
     e.preventDefault();
     setTasks([...tasks, {id: Date.now(), ...task, Favorites: false}]);
     console.log(tasks);
     setTask({Name: "", Body: "", Date: "00:00:00"});
-    setVisible(false);
+    setVisiblePanel({...visiblePanel, addPanel: false});
   }
 }
 

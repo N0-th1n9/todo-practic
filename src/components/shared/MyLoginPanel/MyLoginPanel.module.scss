@@ -1,0 +1,39 @@
+@import "src/styles/variables";
+
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(9, 9, 9, 0.5);
+  height: 100vh;
+  width: 100vw;
+  display: grid !important;
+  z-index: 11;
+}
+
+.login_off {
+  display: none;
+}
+
+.container {
+  background-color: $bg-color;
+  padding: 20px 30px;
+  border-radius: 11px;
+  width: 800px;
+  place-self: center;
+}
+
+.top {
+  margin-bottom: 53px;
+}
+
+.label {
+  margin: 0 0 3px 6px;
+}
+
+.singIn {
+
+  &>div{
+    margin-bottom: 17px;
+  }
+}
