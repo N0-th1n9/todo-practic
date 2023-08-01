@@ -13,7 +13,9 @@ const MyControlPanel = ({visible,   setVisible}) => {
       <MyInputSearch placeholder="Search here..."/>
       <div className={styles.btns}>
         <SortNavigation/>
-        <MyAddButton onClick={() => setVisiblePanel({...visiblePanel, addPanel: true})}/>
+        <MyAddButton onClick={() => setVisiblePanel({...visiblePanel, addPanel: true})}>
+          Add Task
+        </MyAddButton>
       </div>
     </div>
   );

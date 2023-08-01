@@ -14,3 +14,8 @@
     border: 1px solid #b9b9b9;
   }
 }
+
+.error {
+  border: 1px solid $active-color !important;
+  opacity: 0.8;
+}

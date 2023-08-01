@@ -1,0 +1,48 @@
+@import "src/styles/variables";
+
+.button {
+  position: relative;
+  width: 63px;
+  height: 30px;
+  -webkit-appearance: none;
+  background-color: $main-color;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color .6s;
+
+  &:before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: #bdcce3;
+    position: absolute;
+    top: 27%;
+    left: 10%;
+    border-radius: 20px;
+    transition: left .2s, background-color .1s;
+  }
+
+  &:after {
+    content: 'No';
+    font-size: 18px;
+    position: absolute;
+    top: 12%;
+    left: 49%;
+    transition: .1s;
+  }
+
+  &:checked {
+    background-color: $active-color;
+    color: $main-color;
+
+    &:before {
+      left: 67%;
+      background-color: $main-color;
+    }
+
+    &:after {
+      content: 'Yes';
+      left: 15%;
+    }
+  }
+}

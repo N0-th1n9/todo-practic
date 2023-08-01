@@ -34,7 +34,9 @@ const MyAddPanel = () => {
               <MyInput value={task.Date} onChange={e => setTask({...task, Date: e.target.value})}/>
             </div>
             <div className={styles.btn}>
-              <MyAddButton onClick={e => addNewTasks(e, task, setTask, visiblePanel, setVisiblePanel)}/>
+              <MyAddButton onClick={e => addNewTasks(e, task, setTask, visiblePanel, setVisiblePanel)}>
+                Add Task
+              </MyAddButton>
             </div>
           </div>
         </form>

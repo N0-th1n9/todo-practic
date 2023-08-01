@@ -5,6 +5,7 @@ import MyMenu from "../../shared/MyMenu/MyMenu";
 import MyClock from "../../UI/MyClock/MyClock";
 import {Link} from "react-router-dom";
 import {SortContext} from "../../../Providers/SortProvider";
+import MyLoginPanel from "../../shared/MyLoginPanel/MyLoginPanel";
 
 const Header = () => {
   const {sort, setSort} = useContext(SortContext)
@@ -21,6 +22,7 @@ const Header = () => {
         <MyMenu/>
         <MyBurger/>
       </div>
+      <MyLoginPanel/>
     </div>
 
   );

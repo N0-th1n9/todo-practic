@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(9, 9, 9, 0.5);
+  background-color: rgba(9, 9, 9, 0.8);
   height: 100vh;
   width: 100vw;
   display: grid !important;
@@ -20,20 +20,58 @@
   padding: 20px 30px;
   border-radius: 11px;
   width: 800px;
-  place-self: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 280px;
+  transition: height 0.25s;
+  //overflow: hidden;
+
+  &:has(.singUp_hidden) {
+    height: 395px;
+  }
+  &:has(.singIn_hidden) {
+    height: 520px;
+  }
+}
+
+.singIn_hidden,
+.singUp_hidden{
+  transition: opacity 0.3s;
+  opacity: 0;
 }
 
 .top {
   margin-bottom: 53px;
 }
 
-.label {
-  margin: 0 0 3px 6px;
+.sing_wrapper{
+  display: grid;
+  grid-template: 100% / repeat(3, 100%);
+  gap: 50px;
+  transition: transform 0.4s;
+
+  &:has(.singIn_hidden) {
+    transform: translateX(-790px);
+  }
 }
 
-.singIn {
+.sing {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  &>div{
-    margin-bottom: 17px;
+.switchBtn {
+  display: flex;
+  gap: 15px;
+
+  span {
+    font-weight: 300;
   }
+}
+
+.sbmBtn{
+  display: flex;
+  justify-content: right;
 }

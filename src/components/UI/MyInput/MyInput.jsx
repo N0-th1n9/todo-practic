@@ -1,11 +1,16 @@
 import React from 'react';
 import styles from './MyInput.module.scss'
 
-const MyInput = ({...props}) => {
+const MyInput = ({register, changeBorder, type}) => {
+
+  const rootClasses = [styles.myInput]
+  if (changeBorder) {
+    rootClasses.push(styles.error)
+  }
 
   return (
     <div>
-      <input{...props} className={styles.myInput}/>
+      <input type={type} {...register} className={rootClasses.join(" ")}/>
     </div>
 
   );

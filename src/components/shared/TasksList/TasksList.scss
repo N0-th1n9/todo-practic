@@ -24,10 +24,10 @@
   }
 
   &:hover .btnNavContainer .button-next-slide{
-    opacity: 0.5;
+    opacity: 0.3;
   }
   &:hover .btnNavContainer .button-prev-slide{
-    opacity: 0.5;
+    opacity: 0.3;
   }
 }
 
@@ -48,7 +48,7 @@
   height: 40px;
   width: 40px;
   border-radius: 100%;
-  background-color: #777777;
+  background-color: $active-color;
   z-index: 9999;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -62,13 +62,13 @@
   }
 
   &:hover {
-    opacity: 0.8 !important;
+    opacity: 0.5 !important;
   }
 
 }
 .button-next-slide {
   position: relative;
-  background-color: #777777;
+  background-color: $active-color;
   height: 40px;
   width: 40px;
   border-radius: 100%;
@@ -85,7 +85,7 @@
   }
 
   &:hover {
-    opacity: 0.8 !important;
+    opacity: 0.5 !important;
   }
 }
 
@@ -101,7 +101,7 @@
 @media (max-width: 1000px) {
   .button-prev-slide,
   .button-next-slide {
-   opacity: 0.6;
+   opacity: 0.4;
   }
 }
 

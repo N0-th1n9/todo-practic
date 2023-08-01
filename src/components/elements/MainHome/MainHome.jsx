@@ -25,7 +25,6 @@ const MainHome = () => {
   return (
     <div className={visibleMenu ? [styles.main, styles.main_down].join(" ") : styles.main}>
       <MyAddPanel/>
-      <MyLoginPanel/>
       <h2>Notes</h2>
       <div className={styles.top}>
         <div className={styles.top_sort}>
