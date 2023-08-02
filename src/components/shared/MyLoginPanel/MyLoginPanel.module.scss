@@ -25,7 +25,7 @@
   transform: translateX(-50%);
   margin-top: 280px;
   transition: height 0.25s;
-  //overflow: hidden;
+  overflow: hidden;
 
   &:has(.singUp_hidden) {
     height: 395px;
